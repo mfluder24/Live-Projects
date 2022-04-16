@@ -17,7 +17,9 @@ My App was created for a user to organise and manage their favourite fictional c
 I began by cloning the existing project repository onto my computer via PyCharm, Git, and Azure DevOps. While working on this project I used a virtual environment of Django 2.2.5, beautifulsoup4 4.8.0, and more. I began by creating a basic app, with a navbar, background, title and footer.
 
 * **CREATE:**
-In Story 2, I created the model for collecting data about each character entry, as well as a related table of what series they were from. I included several fields to give the user the ability to paint a complete picture of their character, including DND style alignments, and added a notes section for addition of anything the user felt was vital and not covered by the data fields. The Series model was used as a related table, with the series title as the foreign key. It enabled users to list the type of media the series was from (books, video games, films, etc) and list the creator of the series if they chose to. I added create pages and functions for both tables during this step.
+In Story 2, I created the model for collecting data about each character entry, as well as a related table of what series they were from. I included several fields to give the user the ability to paint a complete picture of their character, including DND style alignments, and added a notes section for addition of anything the user felt was vital and not covered by the data fields. The Series model was used as a related table, with the series title as the foreign key. It enabled users to list the type of media the series was from (books, video games, films, etc) and list the creator of the series if they chose to. I added create pages and functions for both tables during this step.  
+
+
 ```
 class Series(models.Model):
     name = models.CharField(max_length=150)
@@ -44,12 +46,16 @@ class Characters(models.Model):
 
     def __str__(self):
         return self.name
-```
+```  
+
+
 ![Alt Text](https://i.imgur.com/fpNn2A1.gif)
 
 
 * **READ:**
-In Story 3 and Story 4 I focused on getting all of the information from the Characters model to display on a page for the user, as well as creating a page that listed all of the entries in the Characters database. For this, I created a function that displayed all of the data fields for each Character entry in an easily read format. Each Character was listed by name, and linked to the page extending their details.
+In Story 3 and Story 4 I focused on getting all of the information from the Characters model to display on a page for the user, as well as creating a page that listed all of the entries in the Characters database. For this, I created a function that displayed all of the data fields for each Character entry in an easily read format. Each Character was listed by name, and linked to the page extending their details.  
+
+
 ```
 def list_characters(request):
     # Retrieves all entries from dB in alphabetical order by name
@@ -62,12 +68,16 @@ def show_char(request, char_id):
     char = Characters.objects.get(pk=char_id)
     return render(request,
     'FictionalCharacters/FictionalCharacters_ShowChar.html', {'char': char}) 
-```
+```  
+
+
 ![Alt Text](https://i.imgur.com/XXAPZOK.gif)
 
 
 * **UPDATE AND DELETE:**
-In Story 5 I created an interface for users to edit Characters in the database, save those edits, or delete Characters completely. I also created a delete confirmation popup as a precaution in case the user accidentally summoned the delete function.
+In Story 5 I created an interface for users to edit Characters in the database, save those edits, or delete Characters completely. I also created a delete confirmation popup as a precaution in case the user accidentally summoned the delete function.  
+
+
 ```
 # Create a function to allow and accept valid edits to the dB records
 def edit_char(request, char_id):
@@ -84,13 +94,17 @@ def delete_char(request, char_id):
     char = Characters.objects.get(pk=char_id)
     char.delete()
     return redirect('FictionalCharacters_View')
-```
+```  
+
+
 ![Alt Text](https://i.imgur.com/PgLihaT.gif)  
 
 * [Index](#index)
 
 # Web Scraping
-With Story 6 and Story 7, I set up Beautiful Soup to scrape the contents of [this article](https://www.scrolldroll.com/most-famous-fictional-characters-of-all-time/) for the names of the 'Most Famous Fictional Characters of All Time' as a fun addition to the App. The code presented an interesting challenge, as there was an issue where elements 6 & 7 in the scraped array displayed incorrectly, so I created additional code to join the two elements, delete the unneeded elements, and insert the proper one into the proper index of the array.
+With Story 6 and Story 7, I set up Beautiful Soup to scrape the contents of [this article](https://www.scrolldroll.com/most-famous-fictional-characters-of-all-time/) for the names of the 'Most Famous Fictional Characters of All Time' as a fun addition to the App. The code presented an interesting challenge, as there was an issue where elements 6 & 7 in the scraped array displayed incorrectly, so I created additional code to join the two elements, delete the unneeded elements, and insert the proper one into the proper index of the array.  
+
+
 ```
 def fc_soup(request):
     chars = []  # Character name list
@@ -110,13 +124,17 @@ def fc_soup(request):
 
     context = {'chars': chars}
     return render(request, 'FictionalCharacters/FictionalCharacters_Soup.html', context)
-```
+```  
+
+
 ![Alt Text](https://i.imgur.com/G91udTU.gif)
 
 * [Index](#index)
 
 # API
-In Story 6.5 and Story 7.5, I was tasked to connect to and utilise an API of my choice. In keeping with the theme of my App, I chose to use the [Love Calculator](https://rapidapi.com/ajith/api/love-calculator) API, so users could enter the name of two of their favourite characters into the calculator and see the results. I created a basic JSON response, and parsed through the results to assemble them into a template for the user to view.
+In Story 6.5 and Story 7.5, I was tasked to connect to and utilise an API of my choice. In keeping with the theme of my App, I chose to use the [Love Calculator](https://rapidapi.com/ajith/api/love-calculator) API, so users could enter the name of two of their favourite characters into the calculator and see the results. I created a basic JSON response, and parsed through the results to assemble them into a template for the user to view.  
+
+
 ```
 # Create a function that collects user input, uses the API, and delivers input to results page
 def fc_calc(request):
@@ -152,8 +170,12 @@ def fc_api(f, s):
     print(response.text)
 
     return test
-```
- I also created three separate images to go along with the different responses determined by the percentage of compatibility from the results. I customised some styling of the pages to go along with the theme and add some extra engagement for the user.
+```  
+
+
+ I also created three separate images to go along with the different responses determined by the percentage of compatibility from the results. I customised some styling of the pages to go along with the theme and add some extra engagement for the user.  
+ 
+ 
  ```
   {% if data.percent <= 50 %}
     <div class="FCSpace">
@@ -186,14 +208,18 @@ def fc_api(f, s):
     {{data.result}}!!!<br/>
 
     {% endif %}
- ```
+ ```  
+ 
+ 
 ![Alt Text](https://i.imgur.com/nem7mNU.gif)
 ![Alt Text](https://i.imgur.com/uWzMb50.gif)  
 
 * [Index](#index)
 
 # Front End Development
-With Story 8 I made some basic Front End Improvements to the overall App, including using CSS to create animated buttons and links, as well as the basic hovering image animation seen above on the API pages. I hid the scrollbars in the main content area of the pages as I felt they made it look 'clunky', and the information on the pages was cropped in a way that naturally encouraged users to attempt scrolling. On the Home page, I used some basic Javascript to display a random image from an array of four, just to add some extra visual stimulus to the page.
+With Story 8 I made some basic Front End Improvements to the overall App, including using CSS to create animated buttons and links, as well as the basic hovering image animation seen above on the API pages. I hid the scrollbars in the main content area of the pages as I felt they made it look 'clunky', and the information on the pages was cropped in a way that naturally encouraged users to attempt scrolling. On the Home page, I used some basic Javascript to display a random image from an array of four, just to add some extra visual stimulus to the page.  
+
+
 ```
   writeRandomQuote = function() {
     var quotes = new Array();
@@ -209,10 +235,14 @@ With Story 8 I made some basic Front End Improvements to the overall App, includ
     document.getElementById("fcquote").appendChild(quotes[rand]);
   }
   writeRandomQuote();
-```
+```  
+
+
 ![Alt Text](https://i.imgur.com/Ckv2M78.gif)
 
-I also added a functioning Search bar, so users could search for a character in their collection by name, and link directly to their details page.
+I also added a functioning Search bar, so users could search for a character in their collection by name, and link directly to their details page.  
+
+
 ```
 # Create a function to list search results of Characters dB
 def search_characters(request):
@@ -224,7 +254,9 @@ def search_characters(request):
     else:
         return render(request,
         'FictionalCharacters/FictionalCharacters_Search.html', {})
-```
+```  
+
+
 ![Alt Text](https://i.imgur.com/ZbIq7Ww.gif) 
 
 * [Index](#index)
