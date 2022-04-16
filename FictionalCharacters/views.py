@@ -111,7 +111,7 @@ def fc_api(f, s):
 
     headers = {
         "X-RapidAPI-Host": "love-calculator.p.rapidapi.com",
-        "X-RapidAPI-Key": "97d934559cmshcc7dd84616b2d90p107d36jsn5b9a1d832d36"
+        "X-RapidAPI-Key": "API KEY HERE"
     }
 
     response = requests.request("GET", url, headers=headers, params=querystring)
