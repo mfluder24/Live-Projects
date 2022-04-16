@@ -2,7 +2,9 @@
 # Introduction
 During a two-week sprint, I was tasked to work on a Python live project, alongside several other students through Azure DevOps, to create an App via Django for users to store a collection of things. It was my first time working with such a large codebase, and it was thrilling to learn how to work alongside other developers, manage branches and merges, and assure that my code met established naming and style (PEP8) conventions. Creation of the App included several tasks that were new to me, which invited me to learn some new skills and techniques while continuing to practise those I had already learnt during my bootcamp. I worked on front end and back end stories, with an API, as well as web scraping via BeautifulSoup. I used Agile and Scrum methodology, with daily stand up meetings and regular virtual communication with my team and management. I found this a great introduction to working with a team from a remote workstation. 
 
-Below are descriptions of the stories I worked on, as well as code snippets and screenshots of my finished app.
+Below are descriptions of the stories I worked on, as well as code snippets and screenshots of my finished app.  
+
+I have also included my project files (minus migrations files) in this repository.
 
 # INDEX
 * [CRUD Functionality](#crud-functionality)
