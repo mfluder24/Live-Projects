@@ -1,0 +1,20 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} EDIT {% endblock %}
+
+{% block content %}
+
+<div class="FCContainer">
+    <form class="FCForm" method="POST">
+        <table>
+            {% csrf_token %}
+            <tr><td>{{form.as_p}}</td></tr>
+        </table>
+        <input type="submit" value="Update" class="FCSub">
+    </form>
+</div>
+
+
+{% endblock %}

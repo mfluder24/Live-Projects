@@ -1,0 +1,20 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} MOST FAMOUS CHARACTERS {% endblock %}
+
+{% block content %}
+
+<p class="FCHome">Here's a list of the 15 Most Famous Fictional Characters of All Time, according to
+    <a href="https://www.scrolldroll.com/most-famous-fictional-characters-of-all-time/">scrolldroll.com</a>.
+Are any of your favourites on the list?</p><br/>
+
+
+<div class="FCSoup">
+    {% for char in chars %}
+        <h3>{{char}}</h3>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} SEARCH RESULTS {% endblock %}
+
+{% block content %}
+
+<div class="FCSearch">
+    {% if searched %}
+        {% for char in chars %}
+
+           &curren; <a href="{% url 'FictionalCharacters_ShowChar' char.id%}">{{ char }}</a> <br/>
+
+        {% endfor %}
+
+    {% else %}
+    You forgot to search for a character!
+    {% endif %}
+</div>
+
+{% endblock %}

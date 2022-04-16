@@ -1,0 +1,28 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} SHIP CALCULATOR {% endblock %}
+
+{% block content %}
+
+<p class="FCHome">Have you ever wondered how well your favourite pairings would really work?
+Enter their names in this love calculator and see how well your ship will sail!</p><br/>
+
+<div class="FCSpace">
+  <div class="FCAvatar">
+      <img src="/static/FictionalCharacters/images/Characters_heart.png">
+  </div>
+</div>
+
+<div class="FCShip">
+    <form method="POST">
+        {% csrf_token %}
+
+        <input class="FCInput" type="search" placeholder="Character 1" name="fname" required><br/>
+        <input class="FCInput" type="search" placeholder="Character 2" name="sname" required><br/>
+        <input class="FCCal" type="submit" value="Calculate">
+    </form>
+</div>
+
+{% endblock %}

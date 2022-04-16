@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="bg_img">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'FictionalCharacters/CSS/FictionalCharacters.css' %}">
+    <script src="{% static 'FictionalCharacters/JS/FictionalCharacters.js' %}" defer></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <div class="FCNavbar">
+        <a href="{% url 'FictionalCharacters_Home' %}" class="FCBtn FCBtn-text-stretch FCBtn-text-stretch--white">Home</a> |
+        <a href="{% url 'FictionalCharacters_View' %}" class="FCBtn FCBtn-text-stretch FCBtn-text-stretch--white">View Characters</a> |
+        <a href="{% url 'FictionalCharacters_CreateSeries' %}" class="FCBtn FCBtn-text-stretch FCBtn-text-stretch--white">Add A Series</a> |
+        <a href="{% url 'FictionalCharacters_Create' %}" class="FCBtn FCBtn-text-stretch FCBtn-text-stretch--white">Add A Character</a> |
+        <a href="{% url 'FictionalCharacters_API' %}" class="FCBtn FCBtn-text-stretch FCBtn-text-stretch--white">Ship Calculator</a> |
+        <a href="{% url 'FictionalCharacters_Soup' %}" class="FCBtn FCBtn-text-stretch FCBtn-text-stretch--white">Most Famous Characters</a>
+        </a>
+
+        <div class="FCSrc">
+            <form method="POST" action="{% url 'FictionalCharacters_Search' %}">
+                {% csrf_token %}
+                <input type="search" placeholder="Search Characters..." name="searched">
+                <button type="submit" class="FCSBtn flash-slide flash-slide--black">Search</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="FCBox">
+        <header class="FCHeader">
+            <h1>{% block header %}{% endblock %}</h1>
+        </header>
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+
+<div class="FCFooter">
+    <p> 2022 <img src="/static/FictionalCharacters/images/Characters_icon.png">
+        <a href="https://mfluder24.github.io/">Fox Addams</a></p>
+</div>
+
+
+</html>

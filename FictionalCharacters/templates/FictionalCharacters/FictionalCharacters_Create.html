@@ -1,0 +1,22 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} Add A Character {% endblock %}
+
+{% block content %}
+
+<div class="FCContainer">
+    <h3 class="FCAttn">ATTENTION! Please make sure you've already
+        <a href="{% url 'FictionalCharacters_CreateSeries' %}">created a Series</a> before creating a character!</h3>
+    <form class="FCForm" method="POST">
+        <table>
+            {% csrf_token %}
+            <tr><td>{{form.as_p}}</td></tr>
+        </table>
+        <input type="submit" value="Submit" class="FCSub">
+    </form>
+</div>
+
+{% endblock %}
+

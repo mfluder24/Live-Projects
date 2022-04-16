@@ -1,0 +1,28 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} {{ char }} {% endblock %}
+
+{% block content %}
+
+<div class="FCInfo">
+    <ul>
+        <li class="FCList"><b><u>AGE</u>:</b> {{ char.age }}</li>
+        <li class="FCList"><b><u>GENDER</u>:</b> {{ char.gender }}</li>
+        <li class="FCList"><b><u>SPECIES</u>:</b> {{ char.species }}</li>
+        <li class="FCList"><b><u>SKILL</u>:</b> {{ char.skill }}</li>
+        <li class="FCList"><b><u>ALIGNMENT</u>:</b> {{ char.alignment|default_if_none:'?'}}</li> <!-- If no value is found, will display '?' -->
+        <li class="FCList"><b><u>SERIES</u>:</b> {{ char.series }}</li>
+        <li class="FCList"><b><u>NOTES</u>:</b> {{ char.notes }}</li>
+    </ul>
+</div>
+
+<img class="FCImg" src="/static/FictionalCharacters/images/Characters_divider.png">
+    <div class="FCButtons">
+        <a href="{% url 'FictionalCharacters_Edit' char.id%}" class="FCEdit">Edit Entry</a>
+
+        <a href="{% url 'FictionalCharacters_Delete' char.id%}"
+           onclick="return confirm('Are you sure you want to delete this character?')" class="FCDel">Delete Entry</a>
+    </div>
+{% endblock %}

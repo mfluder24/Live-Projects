@@ -1,0 +1,17 @@
+{% extends 'FictionalCharacters/FictionalCharacters_Base.html' %}
+
+{% block title %} Fictional Characters {% endblock %}
+
+{% block header %} CHARACTERS {% endblock %}
+
+{% block content %}
+
+<div class="FCView">
+    {% for char in chars %}
+    <a href="{% url 'FictionalCharacters_ShowChar' char.id%}"
+       class="FCBtn FCBtn-text-stretch FCBtn-text-stretch--white">{{ char.name }}</a> <br/>
+    <img class="FCImg" src="/static/FictionalCharacters/images/Characters_divider.png">
+    {% endfor %}
+</div>
+
+{% endblock %}
