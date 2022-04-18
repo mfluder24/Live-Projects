@@ -264,10 +264,12 @@ def search_characters(request):
 * [Index](#index)
 
 # Skills Acquired
-During this sprint, I gained a great deal of skill and appreciation for Project Management, and working on a large, established codebase with a team of several other developers. I found my understanding of Azure DevOps increased greatly, as well as my understanding of project flow, especially since I was working with people on the other side of the world in extremely different time zones. Working through stories gave me a solid understanding of working on tasks assigned to me and meeting deadlines. I found attending Daily Standups and weekly Code Retrospectives helped increase our connection as a team and gave us a good understanding of how the project was progressing. My comfort with and understanding of working with Version Control also improved during this project.  
-
-My passion for researching new techniques and functions came in handy, as there was a lot of research to be done on this project! I found it all very beneficial and enjoyable, as it gave me a chance to really go into unknown territory on my own, build my knowledge, and come back to build my code. I developed a further sense of patience and diligence, and found that I was successfully able to debug most of my own roadblocks after doing some research and learning. When I wasn't able to figure it out on my own, I had a wonderful team there to provide assistance, and help get me moving again.  
-
-I feel that my understanding of Django quadrupled during this project; I have a much stronger appreciation for it, and a better idea of what kind of Apps and websites can be built with Django.  
+* During this sprint, I gained a great deal of skill and appreciation for Project Management, and working on a large, established codebase with a team of several other developers. I found my understanding of Azure DevOps increased greatly, as well as my understanding of project flow, especially since I was working with people on the other side of the world in extremely different time zones. 
+* Working through stories gave me a solid understanding of working on tasks assigned to me and meeting deadlines. 
+* I found attending Daily Standups and weekly Code Retrospectives helped increase our connection as a team and gave us a good understanding of how the project was progressing. 
+* My comfort with and understanding of working with Version Control also improved during this project.  
+* My passion for researching new techniques and functions came in handy, as there was a lot of research to be done on this project! I found it all very beneficial and enjoyable, as it gave me a chance to really go into unknown territory on my own, build my knowledge, and come back to build my code. 
+* I developed a further sense of patience and diligence, and found that I was successfully able to debug most of my own roadblocks after doing some research and learning. When I wasn't able to figure it out on my own, I had a wonderful team there to provide assistance, and help get me moving again.  
+* I feel that my understanding of Django quadrupled during this project; I have a much stronger appreciation for it, and a better idea of what kind of Apps and websites can be built with Django.  
 
 * [Index](#index)
